@@ -1,18 +1,21 @@
 "use client"
 import React from 'react';
+import Link from 'next/link';
 
 const drivers = [
   {
     name: "Max",
     lastName: "Verstappen",
     image: "https://a.storyblok.com/f/250901/720x1210/73ddd41381/max-verstappen.png",
-    id: "max"
+    id: "max",
+    link: "/Max"
   },
   {
     name: "Isack",
     lastName: "Hadjar",
     image: "https://a.storyblok.com/f/250901/720x1210/6ebd514492/isack-hadjar.png",
-    id: "isack"
+    id: "isack",
+    link: "/drivers/isack"
   }
 ];
 
@@ -45,7 +48,7 @@ export default function RedbullTeamPage() {
           {drivers.map((driver) => (
             <div key={driver.id} className="relative group flex flex-col items-center justify-end pt-10 pb-20 border-b md:border-b-0 border-white/20 last:border-b-0 h-full">
 
-              {/* Number Graphic Background */}
+              {/* Number Graphic Background - Removed per previous user edit but keeping structure if needed */}
               <div className="absolute top-20 left-10 md:left-20 text-[10rem] md:text-[12rem] font-black italic tracking-tighter opacity-100 select-none pointer-events-none"
                 style={{
                   fontStyle: 'italic',
@@ -70,9 +73,11 @@ export default function RedbullTeamPage() {
 
               {/* Button */}
               <div className="mt-8 z-20">
-                <button className="bg-[#1f2836] hover:bg-[#2a3649] text-white px-8 py-3 rounded-full text-sm font-semibold tracking-wider transition-colors border border-white/10 uppercase cursor-pointer">
-                  View Profile
-                </button>
+                <Link href={driver.link}>
+                  <button className="bg-[#1f2836] hover:bg-[#2a3649] text-white px-8 py-3 rounded-full text-sm font-semibold tracking-wider transition-colors border border-white/10 uppercase cursor-pointer">
+                    View Profile
+                  </button>
+                </Link>
               </div>
 
             </div>
